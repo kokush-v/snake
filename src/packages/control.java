@@ -4,25 +4,29 @@ import java.util.Scanner;
 
 public class control {
 
-  public static area ctrl(game_mechanic moving, area game) {
+  public static void ctrl(snake obj, area game, food food) {
     var sc = new Scanner(System.in);
-    var key = sc.next();
+    var key = sc.nextLine().charAt(0);
 
     switch (key) {
-      case "w":
-        game = moving.moveTop(game);
-        return game;
-      case "s":
-        game = moving.moveBottom(game);
-        return game;
-      case "a":
-        game = moving.moveLeft(game);
-        return game;
-      case "d":
-        game = moving.moveRight(game);
-        return game;
+      case 'w':
+        obj.moveTop(game);
+        obj.catchFood(food, game);
+        break;
+      case 's':
+        obj.catchFood(food, game);
+        obj.moveBottom(game);
+        break;
+      case 'a':
+        obj.catchFood(food, game);
+        obj.moveLeft(game);
+        break;
+      case 'd':
+        obj.catchFood(food, game);
+        obj.moveRight(game);
+        break;
       default:
-        return game;
+        break;
     }
   }
 }

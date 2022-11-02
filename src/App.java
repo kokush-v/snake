@@ -1,26 +1,26 @@
-import java.util.Arrays;
 import packages.area;
 import packages.control;
-import packages.game_mechanic;
+import packages.food;
 import packages.snake;
 
 public class App {
 
   public static void main(String[] args) throws Exception {
-    var area = new area();
-    var snake = new snake();
-    area.areaCreate();
+    var ar = new area();
+    ar.areaCreate();
+    var snake = new snake(0, 4);
+    var food = new food(4, 4);
 
-    area.size[4][0] = snake.headRight;
-    var moving = new game_mechanic(area);
-    while (!area.lose) {
+    ar.setElement(snake.body, 0, 4);
+    ar.setElement(food.body, 4, 4);
+    while (!ar.lose) {
       try {
-        area.gameVisualisation(area);
-        area = control.ctrl(moving, area);
+        ar.gameVisualisation(ar);
+        control.ctrl(snake, ar, food);
         Thread.sleep(1000);
       } catch (Exception e) {
         System.out.println("GAME OVER");
-        area.lose = true;
+        ar.lose = true;
       }
     }
   }

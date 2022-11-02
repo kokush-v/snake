@@ -16,6 +16,10 @@ public class area {
     }
   }
 
+  public void setElement(char b, int x, int y) {
+    this.size[y][x] = b;
+  }
+
   public void gameVisualisation(area ar) {
     System.out.println("\n\n\n\n");
 
