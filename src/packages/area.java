@@ -6,6 +6,7 @@ public class area {
 
   public char[][] size = new char[9][9];
   public boolean lose = false;
+  public int count = 0;
 
   public void areaCreate() {
     for (int i = 0; i < size.length; i++) {
@@ -27,6 +28,7 @@ public class area {
       Arrays.toString(ar.size[x])
     );
 
-    System.out.println("\n\n\n\n");
+    System.out.println("\n\nSCORE: " + this.count);
+    System.out.println("\n\n");
   }
 }

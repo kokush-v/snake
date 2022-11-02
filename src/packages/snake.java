@@ -39,7 +39,7 @@ public class snake extends game_obj {
 
   public void catchFood(food fd, area ar) {
     if (fd.curX == this.curX && fd.curY == this.curY) {
-      System.out.println("boom");
+      ar.count += 1;
       fd.setFood(ar, fd);
     }
   }
